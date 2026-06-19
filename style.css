@@ -494,14 +494,14 @@ h1, h2, h3, h4, h5, h6, .brand-font {
     transform: translateX(-5px);
 }
 
-.lesson-detail .lesson-header-content {
+.lesson-header-content {
     display: flex;
     align-items: center;
     gap: 24px;
     margin-bottom: 30px;
 }
 
-.lesson-detail .emoji-container {
+.emoji-container {
     width: 80px;
     height: 80px;
     background: linear-gradient(135deg, var(--bg-secondary), var(--bg-primary));
@@ -515,7 +515,7 @@ h1, h2, h3, h4, h5, h6, .brand-font {
     animation: float 6s ease-in-out infinite;
 }
 
-.lesson-detail .lesson-title-area h1 {
+.lesson-title-area h1 {
     font-size: 3.5rem;
     font-weight: 900;
     letter-spacing: -1.5px;
@@ -526,7 +526,7 @@ h1, h2, h3, h4, h5, h6, .brand-font {
     -webkit-text-fill-color: transparent;
 }
 
-.lesson-detail .sub-info {
+.sub-info {
     display: flex;
     gap: 30px;
     flex-wrap: wrap;
@@ -535,7 +535,7 @@ h1, h2, h3, h4, h5, h6, .brand-font {
     font-weight: 500;
 }
 
-.lesson-detail .sub-info i {
+.sub-info i {
     color: var(--accent-primary);
     margin-right: 8px;
 }
@@ -864,7 +864,7 @@ h1, h2, h3, h4, h5, h6, .brand-font {
 @media (max-width: 992px) {
     .home-hero h2 { font-size: 3rem; }
     .lesson-detail { padding: 30px; }
-    .lesson-detail .lesson-title-area h1 { font-size: 2.5rem; }
+    .lesson-title-area h1 { font-size: 2.5rem; }
     .dialog { max-width: 90%; }
 }
 
@@ -877,8 +877,8 @@ h1, h2, h3, h4, h5, h6, .brand-font {
     .detail-section { padding: 24px; }
     .vocab-grid { grid-template-columns: 1fr; }
     
-    .lesson-detail .lesson-header-content { flex-direction: column; text-align: center; }
-    .lesson-detail .sub-info { justify-content: center; }
+    .lesson-header-content { flex-direction: column; text-align: center; }
+    .sub-info { justify-content: center; }
 }
 
 @media (max-width: 480px) {
@@ -1043,7 +1043,7 @@ h1, h2, h3, h4, h5, h6, .brand-font {
     border: none;
     width: 32px;
     height: 32px;
-    border-radius: 50%;
+    border-radius: 8px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -1362,4 +1362,76 @@ header h1 {
 
 #document-page:not(.hidden), #vocab-page:not(.hidden) {
     animation: slideUpZoom 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+
+/* ==========================================================================
+   GRAMMAR & EXPRESSIONS PAGES
+   ========================================================================== */
+.grammar-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+}
+
+.grammar-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 25px;
+    margin-bottom: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.grammar-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.grammar-card h3 {
+    color: var(--accent-primary);
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.grammar-explanation {
+    margin-bottom: 20px;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.grammar-explanation code {
+    background: rgba(254, 202, 87, 0.15);
+    color: var(--accent-secondary);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-family: monospace;
+    font-size: 1.1rem;
+}
+
+.grammar-examples {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    padding: 15px;
+}
+
+.example-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.example-item:last-child {
+    border-bottom: none;
+}
+
+.example-item span {
+    flex: 1;
+    font-size: 1.05rem;
 }

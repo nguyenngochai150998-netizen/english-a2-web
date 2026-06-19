@@ -47,6 +47,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const lessonContent = document.getElementById('lesson-content');
     const documentPage = document.getElementById('document-page');
     const vocabPage = document.getElementById('vocab-page');
+    const grammarPage = document.getElementById('grammar-page');
+    const phrasalPage = document.getElementById('phrasal-page');
+    const expressionsPage = document.getElementById('expressions-page');
+
+    const navGrammar = document.getElementById('nav-grammar');
+    const navPhrasal = document.getElementById('nav-phrasal');
+    const navExpressions = document.getElementById('nav-expressions');
 
     // ============================================================
     // LESSON RENDERING
@@ -243,6 +250,9 @@ document.addEventListener('DOMContentLoaded', () => {
         lessonPage.classList.add('hidden');
         documentPage.classList.add('hidden');
         vocabPage.classList.add('hidden');
+        if(grammarPage) grammarPage.classList.add('hidden');
+        if(phrasalPage) phrasalPage.classList.add('hidden');
+        if(expressionsPage) expressionsPage.classList.add('hidden');
         homePage.classList.remove('hidden');
         document.body.classList.remove('in-detail');
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -433,6 +443,132 @@ document.addEventListener('DOMContentLoaded', () => {
         dictSearch.addEventListener('input', (e) => {
             renderDict(e.target.value);
         });
+    }
+
+
+
+    // ============================================================
+    // NEW DOCUMENT PAGES (GRAMMAR, PHRASAL, EXPRESSIONS)
+    // ============================================================
+
+    function hideAllPages() {
+        homePage.classList.add('hidden');
+        lessonPage.classList.add('hidden');
+        documentPage.classList.add('hidden');
+        vocabPage.classList.add('hidden');
+        if(grammarPage) grammarPage.classList.add('hidden');
+        if(phrasalPage) phrasalPage.classList.add('hidden');
+        if(expressionsPage) expressionsPage.classList.add('hidden');
+    }
+
+    if(navGrammar) {
+        navGrammar.addEventListener('click', (e) => {
+            e.preventDefault();
+            hideAllPages();
+            grammarPage.classList.remove('hidden');
+            document.body.classList.add('in-detail');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            docDropdown.classList.remove('show');
+            renderGrammar();
+        });
+    }
+
+    if(navPhrasal) {
+        navPhrasal.addEventListener('click', (e) => {
+            e.preventDefault();
+            hideAllPages();
+            phrasalPage.classList.remove('hidden');
+            document.body.classList.add('in-detail');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            docDropdown.classList.remove('show');
+            renderPhrasal();
+        });
+    }
+
+    if(navExpressions) {
+        navExpressions.addEventListener('click', (e) => {
+            e.preventDefault();
+            hideAllPages();
+            expressionsPage.classList.remove('hidden');
+            document.body.classList.add('in-detail');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            docDropdown.classList.remove('show');
+            renderExpressions();
+        });
+    }
+
+    function renderGrammar() {
+        const container = document.getElementById('grammar-content');
+        if(!container) return;
+        if(typeof grammarCheatSheet === 'undefined') return;
+        
+        let html = '';
+        grammarCheatSheet.forEach(item => {
+            html += `
+            <div class="grammar-card">
+                <h3>${item.title}</h3>
+                <div class="grammar-explanation">
+                    <p><strong>Công thức:</strong> <code>${item.formula}</code></p>
+                    <p><strong>Cách dùng:</strong> ${item.usage}</p>
+                </div>
+                <div class="grammar-examples">
+                    ${item.examples.map(ex => `
+                        <div class="example-item">
+                            <i class="fas fa-check-circle" style="color:var(--success);"></i>
+                            <span>${ex}</span>
+                            <button class="btn-audio" data-text="${ex.replace(/\"/g, '&quot;')}"><i class="fas fa-volume-up"></i></button>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>`;
+        });
+        container.innerHTML = html;
+    }
+
+    function renderPhrasal() {
+        const container = document.getElementById('phrasal-grid');
+        if(!container) return;
+        if(typeof phrasalVerbs === 'undefined') return;
+        
+        let html = '';
+        phrasalVerbs.forEach(item => {
+            html += `
+            <div class="vocab-card">
+                <div class="vocab-header">
+                    <h3>${item.verb}</h3>
+                    <button class="btn-audio" data-text="${item.verb.replace(/\"/g, '&quot;')}"><i class="fas fa-volume-up"></i></button>
+                </div>
+                <div class="vocab-meaning">${item.meaning}</div>
+                <div class="vocab-example">"${item.example}"</div>
+            </div>`;
+        });
+        container.innerHTML = html;
+    }
+
+    function renderExpressions() {
+        const container = document.getElementById('expressions-content');
+        if(!container) return;
+        if(typeof everydayExpressions === 'undefined') return;
+        
+        let html = '';
+        everydayExpressions.forEach(category => {
+            html += `
+            <div class="grammar-card" style="margin-bottom: 20px;">
+                <h3 style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; margin-bottom: 15px;">${category.category}</h3>
+                <div class="grammar-examples" style="background: none; padding: 0;">
+                    ${category.expressions.map(exp => `
+                        <div class="example-item" style="display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 8px; margin-bottom: 10px;">
+                            <div style="flex: 1;">
+                                <div style="font-weight: 600; font-size: 1.1rem; color: var(--accent-secondary);">${exp.en}</div>
+                                <div style="color: var(--text-muted); font-size: 0.9rem; margin-top: 5px;">${exp.vi}</div>
+                            </div>
+                            <button class="btn-audio" data-text="${exp.en.replace(/\"/g, '&quot;')}"><i class="fas fa-volume-up"></i></button>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>`;
+        });
+        container.innerHTML = html;
     }
 
 });

@@ -31,7 +31,7 @@
     <h1>A2 <span>English</span></h1>
 </a>
             <div class="header-actions">
-                <span class="badge-primary"><i class="fas fa-book-open"></i> 9 Chapters</span>
+                <span class="badge-primary"><i class="fas fa-book-open"></i> 10 Chapters</span>
                 <span class="badge-secondary"><i class="fas fa-clock"></i> 20 min/lesson</span>
                 
                 <div class="dropdown">
@@ -44,6 +44,15 @@
                         </a>
                         <a href="#" class="dropdown-item" id="nav-irregular-verbs">
                             <i class="fas fa-list"></i> Irregular Verbs
+                        </a>
+                        <a href="#" class="dropdown-item" id="nav-grammar">
+                            <i class="fas fa-book"></i> Grammar Cheat Sheet
+                        </a>
+                        <a href="#" class="dropdown-item" id="nav-phrasal">
+                            <i class="fas fa-link"></i> Phrasal Verbs
+                        </a>
+                        <a href="#" class="dropdown-item" id="nav-expressions">
+                            <i class="fas fa-comments"></i> Everyday Expressions
                         </a>
                     </div>
                 </div>
@@ -67,11 +76,11 @@
             <p>Master everyday English with bite-sized lessons, vocabulary, grammar &amp; real conversations</p>
             <div class="stats">
                 <div class="stat-item">
-                    <div class="number">9</div>
+                    <div class="number">10</div>
                     <div class="label">Chapters</div>
                 </div>
                 <div class="stat-item">
-                    <div class="number">37</div>
+                    <div class="number">41</div>
                     <div class="label">Lessons</div>
                 </div>
                 <div class="stat-item">
@@ -253,10 +262,29 @@
                 </div>
                 <div class="click-hint"><i class="fas fa-hand-pointer"></i> Click lesson to start</div>
             </div>
+
+            <!-- Chương 10 -->
+            <div class="chapter-card" data-chapter="10">
+                <div class="chapter-top">
+                    <h2>Home & Living</h2>
+                    <span class="chapter-number">Chapter 10</span>
+                </div>
+                <div class="chapter-meta">
+                    <span><i class="fas fa-clock"></i> 4 lessons</span>
+                    <span><i class="fas fa-home"></i> House · Furniture</span>
+                </div>
+                <div class="lesson-preview">
+                    <span class="tag-lesson" data-lesson="10.1">🛋️ 10.1 Rooms & Furniture</span>
+                    <span class="tag-lesson secondary" data-lesson="10.2">🧹 10.2 Household Chores</span>
+                    <span class="tag-lesson" data-lesson="10.3">🔑 10.3 Renting an Apartment</span>
+                    <span class="tag-lesson secondary" data-lesson="10.4">📍 10.4 Prepositions of Place</span>
+                </div>
+                <div class="click-hint"><i class="fas fa-hand-pointer"></i> Click lesson to start</div>
+            </div>
         </div>
 
         <div style="text-align:center; margin-top:40px; opacity:0.2; font-size:0.75rem; letter-spacing:1px; color: var(--text-primary);">
-            <i class="fas fa-arrow-down"></i> 37 lessons · A2 level
+            <i class="fas fa-arrow-down"></i> 41 lessons · A2 level
         </div>
     </div>
 
@@ -340,6 +368,78 @@
             </div>
         </div>
     </div>
+    <!-- ===== GRAMMAR PAGE ===== -->
+    <div id="grammar-page" class="hidden document-detail">
+        <div class="container">
+            <div class="lesson-nav">
+                <button class="btn-back" onclick="showHome()">
+                    <i class="fas fa-arrow-left"></i> Back to Home
+                </button>
+                <span class="badge-secondary">Reference</span>
+            </div>
+            
+            <div class="lesson-header-content">
+                <div class="emoji-container">📝</div>
+                <div class="lesson-title-area">
+                    <h1>Grammar Cheat Sheet</h1>
+                    <p>Bảng tóm tắt ngữ pháp A2 cốt lõi.</p>
+                </div>
+            </div>
+
+            <div id="grammar-content" class="grammar-section">
+                <!-- Rendered by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== PHRASAL VERBS PAGE ===== -->
+    <div id="phrasal-page" class="hidden document-detail">
+        <div class="container">
+            <div class="lesson-nav">
+                <button class="btn-back" onclick="showHome()">
+                    <i class="fas fa-arrow-left"></i> Back to Home
+                </button>
+                <span class="badge-secondary">Vocabulary</span>
+            </div>
+            
+            <div class="lesson-header-content">
+                <div class="emoji-container">🔗</div>
+                <div class="lesson-title-area">
+                    <h1>Phrasal Verbs</h1>
+                    <p>Các cụm động từ thường gặp nhất ở trình độ A2.</p>
+                </div>
+            </div>
+
+            <div class="vocab-grid" id="phrasal-grid">
+                <!-- Rendered by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== EVERYDAY EXPRESSIONS PAGE ===== -->
+    <div id="expressions-page" class="hidden document-detail">
+        <div class="container">
+            <div class="lesson-nav">
+                <button class="btn-back" onclick="showHome()">
+                    <i class="fas fa-arrow-left"></i> Back to Home
+                </button>
+                <span class="badge-secondary">Speaking</span>
+            </div>
+            
+            <div class="lesson-header-content">
+                <div class="emoji-container">💬</div>
+                <div class="lesson-title-area">
+                    <h1>Everyday Expressions</h1>
+                    <p>Những mẫu câu giao tiếp sinh tồn hàng ngày.</p>
+                </div>
+            </div>
+
+            <div id="expressions-content" class="grammar-section">
+                <!-- Rendered by JS -->
+            </div>
+        </div>
+    </div>
+
 
     <!-- ===== FOOTER ===== -->
     <footer class="app-footer">

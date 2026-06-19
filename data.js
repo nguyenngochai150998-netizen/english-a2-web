@@ -8,7 +8,8 @@ const chaptersConfig = [
     { prefix: '6.', count: 4, names: ['A Memorable Trip', 'Childhood Memories', 'Telling a Story', 'Apologies & Excuses'] },
     { prefix: '7.', count: 4, names: ['At the Clothes Shop', 'Comparing Products', 'Online Shopping', 'Asking for a Refund'] },
     { prefix: '8.', count: 4, names: ['Movie Genres', 'Life Experiences', 'Music & Concerts', 'Social Media'] },
-    { prefix: '9.', count: 4, names: ['Weather Forecast', 'Geography & Nature', 'Environmental Issues', 'Future Predictions'] }
+    { prefix: '9.', count: 4, names: ['Weather Forecast', 'Geography & Nature', 'Environmental Issues', 'Future Predictions'] },
+    { prefix: '10.', count: 4, names: ['Rooms & Furniture', 'Household Chores', 'Renting an Apartment', 'Prepositions of Place'] }
 ];
 
 // --- DETAILED LESSON DATA ---
@@ -488,4 +489,95 @@ const a2Vocabulary = [
     { word: "Various", pron: "/ˈveə.ri.əs/", meaning: "Nhiều loại, đa dạng", example: "We have bags in various colors." },
     { word: "Vocabulary", pron: "/vəˈkæb.jə.lər.i/", meaning: "Từ vựng", example: "I need to learn more English vocabulary." },
     { word: "Wonder", pron: "/ˈwʌn.dər/", meaning: "Tự hỏi, thắc mắc", example: "I wonder where he is now." }
+];
+
+
+// --- GRAMMAR CHEAT SHEET ---
+const grammarCheatSheet = [
+    {
+        title: 'Present Simple (Hiện tại đơn)',
+        formula: 'S + V(s/es) / S + am/is/are',
+        usage: 'Sự thật hiển nhiên, thói quen, lịch trình.',
+        examples: ['I work every day.', 'The train leaves at 8 AM.']
+    },
+    {
+        title: 'Present Continuous (Hiện tại tiếp diễn)',
+        formula: 'S + am/is/are + V-ing',
+        usage: 'Hành động đang xảy ra lúc nói, hoặc dự định tương lai gần.',
+        examples: ['She is reading a book now.', 'We are leaving tomorrow.']
+    },
+    {
+        title: 'Past Simple (Quá khứ đơn)',
+        formula: 'S + V2/ed / S + was/were',
+        usage: 'Hành động đã bắt đầu và kết thúc trong quá khứ.',
+        examples: ['I visited Paris last year.', 'They didn\'t go to school yesterday.']
+    },
+    {
+        title: 'Future Simple (Tương lai đơn)',
+        formula: 'S + will + V(nguyên mẫu)',
+        usage: 'Dự đoán không có căn cứ, quyết định ngay lúc nói.',
+        examples: ['I think it will rain.', 'I\'ll take this shirt.']
+    },
+    {
+        title: 'Comparatives (So sánh hơn)',
+        formula: 'Tính từ ngắn + er / more + Tính từ dài',
+        usage: 'So sánh giữa 2 người hoặc 2 vật.',
+        examples: ['He is taller than me.', 'This car is more expensive than that one.']
+    },
+    {
+        title: 'First Conditional (Câu điều kiện loại 1)',
+        formula: 'If + Present Simple, S + will + V',
+        usage: 'Điều kiện có thể xảy ra ở hiện tại hoặc tương lai.',
+        examples: ['If it rains, I will stay home.', 'If you study hard, you will pass.']
+    }
+];
+
+// --- PHRASAL VERBS ---
+const phrasalVerbs = [
+    { verb: 'Wake up', meaning: 'Thức giấc', example: 'I wake up at 6 AM.' },
+    { verb: 'Get up', meaning: 'Ra khỏi giường', example: 'I get up 10 minutes later.' },
+    { verb: 'Turn on / Turn off', meaning: 'Bật / Tắt (máy móc)', example: 'Please turn off the lights.' },
+    { verb: 'Put on', meaning: 'Mặc vào', example: 'Put on your jacket, it\'s cold.' },
+    { verb: 'Take off', meaning: 'Cởi ra / Cất cánh', example: 'The plane takes off at 9 PM.' },
+    { verb: 'Look for', meaning: 'Tìm kiếm', example: 'I am looking for my keys.' },
+    { verb: 'Give up', meaning: 'Từ bỏ', example: 'Never give up on your dreams.' },
+    { verb: 'Look after', meaning: 'Chăm sóc', example: 'Can you look after my cat?' },
+    { verb: 'Find out', meaning: 'Tìm ra (thông tin)', example: 'I need to find out the truth.' },
+    { verb: 'Grow up', meaning: 'Lớn lên', example: 'She grew up in London.' }
+];
+
+// --- EVERYDAY EXPRESSIONS ---
+const everydayExpressions = [
+    {
+        category: 'Greetings & Small Talk (Chào hỏi)',
+        expressions: [
+            { en: "How's it going?", vi: "Dạo này sao rồi?" },
+            { en: "Long time no see.", vi: "Lâu rồi không gặp." },
+            { en: "What have you been up to?", vi: "Dạo này bạn bận gì không?" }
+        ]
+    },
+    {
+        category: 'Apologizing (Xin lỗi)',
+        expressions: [
+            { en: "I'm so sorry about that.", vi: "Tôi rất xin lỗi về điều đó." },
+            { en: "It was my fault.", vi: "Đó là lỗi của tôi." },
+            { en: "Please forgive me.", vi: "Xin hãy tha lỗi cho tôi." }
+        ]
+    },
+    {
+        category: 'At a Restaurant (Nhà hàng)',
+        expressions: [
+            { en: "Can I get the menu, please?", vi: "Cho tôi xem thực đơn được không?" },
+            { en: "I would like to order...", vi: "Tôi muốn gọi món..." },
+            { en: "Could we have the bill, please?", vi: "Cho tôi xin hóa đơn." }
+        ]
+    },
+    {
+        category: 'Shopping (Mua sắm)',
+        expressions: [
+            { en: "I'm just looking, thanks.", vi: "Tôi chỉ xem thôi, cảm ơn." },
+            { en: "How much does this cost?", vi: "Cái này giá bao nhiêu?" },
+            { en: "Do you have this in a smaller size?", vi: "Bạn có cái này size nhỏ hơn không?" }
+        ]
+    }
 ];
