@@ -1310,6 +1310,28 @@ header h1 {
     border-color: transparent;
 }
 
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.app-footer {
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 60px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    backdrop-filter: blur(10px);
+}
+
+.app-footer p {
+    margin: 5px 0;
+}
+
+.app-footer i {
+    color: var(--accent-secondary);
+    margin-right: 5px;
+}
+
 /* 8. Progress Ring Pulse */
 @keyframes ringPulse {
     0% { stroke-width: 4; stroke: var(--accent-secondary); filter: drop-shadow(0 0 2px var(--accent-secondary)); }
