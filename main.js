@@ -230,6 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
         documentPage.classList.add('hidden');
         vocabPage.classList.add('hidden');
         lessonPage.classList.remove('hidden');
+        document.body.classList.add('in-detail');
         window.scrollTo({ top: 0, behavior: 'smooth' });
         
         initScrollAnimations();
@@ -243,6 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
         documentPage.classList.add('hidden');
         vocabPage.classList.add('hidden');
         homePage.classList.remove('hidden');
+        document.body.classList.remove('in-detail');
         window.scrollTo({ top: 0, behavior: 'smooth' });
         lessonContent.innerHTML = '';
         initScrollAnimations();
@@ -365,6 +367,7 @@ document.addEventListener('DOMContentLoaded', () => {
         lessonPage.classList.add('hidden');
         vocabPage.classList.add('hidden');
         documentPage.classList.remove('hidden');
+        document.body.classList.add('in-detail');
         window.scrollTo({ top: 0, behavior: 'smooth' });
         docDropdown.classList.remove('show');
         renderVerbs();
@@ -418,6 +421,7 @@ document.addEventListener('DOMContentLoaded', () => {
             lessonPage.classList.add('hidden');
             documentPage.classList.add('hidden');
             vocabPage.classList.remove('hidden');
+            document.body.classList.add('in-detail');
             window.scrollTo({ top: 0, behavior: 'smooth' });
             
             docDropdown.classList.remove('show');

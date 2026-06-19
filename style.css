@@ -460,7 +460,7 @@ h1, h2, h3, h4, h5, h6, .brand-font {
     box-shadow: 0 20px 50px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(255,255,255,0.05);
 }
 
-.lesson-detail .lesson-nav {
+.lesson-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1139,4 +1139,205 @@ h1, h2, h3, h4, h5, h6, .brand-font {
     font-style: italic;
     display: block;
     margin-top: 5px;
+}
+
+
+/* ==========================================================================
+   WOW ANIMATIONS & EFFECTS
+   ========================================================================== */
+
+/* 1. Dynamic Modern Orbs Background */
+body.in-detail {
+    background: linear-gradient(135deg, #0f172a 0%, #020617 100%);
+}
+
+.bg-animation-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+    background-color: var(--bg-color); /* Fallback */
+    transition: opacity 0.5s ease;
+}
+
+body.in-detail .bg-animation-container {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.bg-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.5;
+    animation: floatOrb 20s infinite ease-in-out alternate;
+}
+
+.orb-1 {
+    width: 400px; height: 400px;
+    background: #ff6b6b; /* Accent Primary */
+    top: -10%; left: -10%;
+    animation-delay: 0s;
+    animation-duration: 25s;
+}
+
+.orb-2 {
+    width: 500px; height: 500px;
+    background: #feca57; /* Accent Secondary */
+    top: 40%; right: -20%;
+    animation-delay: -5s;
+    animation-duration: 30s;
+}
+
+.orb-3 {
+    width: 300px; height: 300px;
+    background: #ee5253; /* Darker red */
+    bottom: -10%; left: 20%;
+    animation-delay: -10s;
+    animation-duration: 22s;
+}
+
+.orb-4 {
+    width: 600px; height: 600px;
+    background: rgba(255, 159, 67, 0.6); /* Orange */
+    top: -20%; right: 20%;
+    animation-delay: -15s;
+    animation-duration: 28s;
+}
+
+@keyframes floatOrb {
+    0% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(100px, 150px) scale(1.2); }
+    66% { transform: translate(-50px, 200px) scale(0.9); }
+    100% { transform: translate(-150px, -50px) scale(1.1); }
+}
+
+/* 2. Floating Emojis in Chapter Cards */
+@keyframes floatIcon {
+    0% { transform: translateY(0px) rotate(0deg); }
+    33% { transform: translateY(-10px) rotate(5deg); }
+    66% { transform: translateY(5px) rotate(-5deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.chapter-emoji {
+    animation: floatIcon 4s ease-in-out infinite;
+    display: inline-block;
+    filter: drop-shadow(0 5px 15px rgba(254, 202, 87, 0.4));
+}
+
+/* Different delay for each to look natural */
+.chapter-card:nth-child(even) .chapter-emoji {
+    animation-delay: 1s;
+    animation-duration: 5s;
+}
+
+/* 3. Glowing Title Text */
+@keyframes textGlow {
+    0%, 100% { text-shadow: 0 0 10px rgba(255,107,107,0.5), 0 0 20px rgba(255,107,107,0.3); }
+    50% { text-shadow: 0 0 20px rgba(254,202,87,0.8), 0 0 30px rgba(254,202,87,0.5); }
+}
+
+header h1 {
+    animation: textGlow 3s infinite alternate;
+}
+
+/* 4. Pulse effect for buttons and tags */
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(255, 107, 107, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 107, 107, 0); }
+}
+
+.btn-primary:hover {
+    animation: pulseGlow 1.5s infinite;
+}
+
+/* 5. 3D Hover effect on Cards (enhanced) */
+.chapter-card {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.chapter-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 50%; height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent);
+    transform: skewX(-20deg);
+    transition: all 0.5s ease;
+    z-index: 1;
+}
+
+.chapter-card:hover::before {
+    left: 150%;
+}
+
+.chapter-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 
+                0 0 20px var(--accent-primary-glow);
+    border-color: var(--accent-primary);
+}
+
+/* 6. Icon Spin on Hover */
+.chapter-card:hover .chapter-info span i {
+    transform: rotate(360deg) scale(1.2);
+    color: var(--accent-secondary);
+}
+
+.chapter-info span i {
+    transition: all 0.6s ease;
+    display: inline-block;
+}
+
+/* 7. Lesson Tags staggered reveal inside card on hover */
+.tag-lesson {
+    transition: all 0.3s ease;
+}
+
+.tag-lesson:hover {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    color: white;
+    transform: scale(1.1) rotate(2deg);
+    box-shadow: 0 5px 15px var(--accent-primary-glow);
+    border-color: transparent;
+}
+
+/* 8. Progress Ring Pulse */
+@keyframes ringPulse {
+    0% { stroke-width: 4; stroke: var(--accent-secondary); filter: drop-shadow(0 0 2px var(--accent-secondary)); }
+    50% { stroke-width: 6; stroke: var(--accent-primary); filter: drop-shadow(0 0 8px var(--accent-primary)); }
+    100% { stroke-width: 4; stroke: var(--accent-secondary); filter: drop-shadow(0 0 2px var(--accent-secondary)); }
+}
+
+.progress-ring-circle {
+    animation: ringPulse 3s infinite;
+}
+
+/* 9. Header Icon bouncing */
+@keyframes bounceSmall {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+
+.header-actions .badge-primary i, .header-actions .badge-secondary i {
+    display: inline-block;
+    animation: bounceSmall 2s infinite ease-in-out;
+}
+
+/* 10. Document Page Animated Entry */
+@keyframes slideUpZoom {
+    from { opacity: 0; transform: translateY(30px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+#document-page:not(.hidden), #vocab-page:not(.hidden) {
+    animation: slideUpZoom 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
